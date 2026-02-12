@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Be My Valentine?</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8d7da;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    .container {
+      background: #f4c2c2;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #b3003b;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .yes-button {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .no-button {
+      background-color: #dc3545;
+      color: white;
+      margin-left: 10px;
+    }
+
+    img {
+      margin-top: 20px;
+      width: 150px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Will you be my Valentine? 💖</h1>
+
+    <div class="buttons">
+      <button class="yes-button" onclick="handleYesClick()">Yes</button>
+      <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+
+    <img src="https://media.tenor.com/4AiXzf8S0F0AAAAi/cute-cat.gif" alt="cute cat">
+  </div>
+
+  <script>
+    const messages = [
+      "Are you sure? 🥺",
+      "Pakka? 😢",
+      "Think again 😭",
+      "Last time soch le ek baar 💔",
+      "Bhakk you 🥹"
+    ];
+
+    let messageIndex = 0;
+
+    function handleNoClick() {
+      const noButton = document.querySelector(".no-button");
+      const yesButton = document.querySelector(".yes-button");
+
+      // Change No button text
+      noButton.textContent = messages[messageIndex];
+      messageIndex = (messageIndex + 1) % messages.length;
+
+      // Make Yes button bigger
+      const currentSize = parseFloat(
+        window.getComputedStyle(yesButton).fontSize
+      );
+      yesButton.style.fontSize = `${currentSize * 1.3}px`;
+    }
+
+    function handleYesClick() {
+      document.body.innerHTML = `
+        <div style="display:flex;justify-content:center;align-items:center;height:100vh;background:#ffccd5;">
+          <h1 style="color:#b3003b;font-size:40px;">
+            BWAHAHAHA ❤️ AS YOU SHOULD!
+          </h1>
+        </div>
+      `;
+    }
+  </script>
+
+</body>
+</html>
